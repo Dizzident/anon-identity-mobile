@@ -68,7 +68,7 @@ describe('useQRScanner', () => {
 
     it('should handle permission denial', async () => {
       mockQRScannerService.requestPermissions.mockResolvedValue({camera: false});
-      
+
       const {result} = renderHook(() => useQRScanner());
 
       await act(async () => {
@@ -82,7 +82,7 @@ describe('useQRScanner', () => {
 
     it('should handle permission errors', async () => {
       mockQRScannerService.requestPermissions.mockRejectedValue(new Error('Permission error'));
-      
+
       const {result} = renderHook(() => useQRScanner());
 
       await act(async () => {
@@ -109,7 +109,7 @@ describe('useQRScanner', () => {
 
     it('should request permissions if not granted', async () => {
       mockQRScannerService.checkPermissions.mockResolvedValue({camera: false});
-      
+
       const {result} = renderHook(() => useQRScanner());
 
       await act(async () => {
@@ -123,7 +123,7 @@ describe('useQRScanner', () => {
     it('should not start scanning if permissions denied', async () => {
       mockQRScannerService.checkPermissions.mockResolvedValue({camera: false});
       mockQRScannerService.requestPermissions.mockResolvedValue({camera: false});
-      
+
       const {result} = renderHook(() => useQRScanner());
 
       await act(async () => {
@@ -135,7 +135,7 @@ describe('useQRScanner', () => {
 
     it('should handle scanning errors', async () => {
       mockQRScannerService.checkPermissions.mockRejectedValue(new Error('Check error'));
-      
+
       const {result} = renderHook(() => useQRScanner());
 
       await act(async () => {
@@ -298,7 +298,7 @@ describe('useQRScanner', () => {
 
       expect(result.current.error).toContain('Failed to process QR code');
       expect(consoleSpy).toHaveBeenCalledWith('Error processing QR code:', expect.any(Error));
-      
+
       consoleSpy.mockRestore();
     });
 

@@ -31,7 +31,7 @@ function QRScannerScreen() {
   const [showManualInput, setShowManualInput] = useState(false);
   const [manualInput, setManualInput] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  
+
   // Track screen views and performance
   useScreenTracking('QRScanner');
   const {trackEvent} = usePerformance();
@@ -57,11 +57,11 @@ function QRScannerScreen() {
   }, [error, clearError]);
 
   const handleQRCodeRead = async (e: any) => {
-    if (isProcessing) return;
-    
+    if (isProcessing) {return;}
+
     setIsProcessing(true);
     trackEvent('qr_scan_attempted', {method: 'camera', data_length: e.data.length});
-    
+
     try {
       await processQRCode(e.data);
       trackEvent('qr_scan_success', {method: 'camera'});
@@ -83,7 +83,7 @@ function QRScannerScreen() {
 
     setIsProcessing(true);
     trackEvent('qr_scan_attempted', {method: 'manual', data_length: manualInput.trim().length});
-    
+
     try {
       await processQRCode(manualInput.trim());
       trackEvent('qr_scan_success', {method: 'manual'});
@@ -174,7 +174,7 @@ function QRScannerScreen() {
             Tap the button below to start scanning QR codes
           </Text>
         </View>
-        
+
         <View style={styles.instructions}>
           <Text style={styles.instructionTitle}>How to scan:</Text>
           <Text style={styles.instructionStep}>
@@ -219,7 +219,7 @@ function QRScannerScreen() {
               <Text style={styles.modalCloseText}>Cancel</Text>
             </TouchableOpacity>
           </View>
-          
+
           <View style={styles.modalContent}>
             <Text style={styles.inputLabel}>
               Paste or type the QR code data:
@@ -233,7 +233,7 @@ function QRScannerScreen() {
               numberOfLines={6}
               textAlignVertical="top"
             />
-            
+
             <TouchableOpacity
               style={[
                 styles.submitButton,

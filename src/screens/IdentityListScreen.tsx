@@ -24,7 +24,7 @@ type IdentityListScreenNavigationProp = StackNavigationProp<
 function IdentityListScreen() {
   const navigation = useNavigation<IdentityListScreenNavigationProp>();
   const {identities, loading, error, refreshIdentities, clearError} = useIdentities();
-  
+
   // Track screen views for analytics
   useScreenTracking('IdentityList');
 

@@ -22,15 +22,15 @@ const mockStorageService = {
 // Test component that uses the context
 const TestComponent = () => {
   const {
-    identities,
-    loading,
-    error,
-    addIdentity,
-    updateIdentity,
-    deleteIdentity,
-    getIdentityById,
-    refreshIdentities,
-    clearError,
+    identities, // eslint-disable-line @typescript-eslint/no-unused-vars
+    loading, // eslint-disable-line @typescript-eslint/no-unused-vars
+    error, // eslint-disable-line @typescript-eslint/no-unused-vars
+    addIdentity, // eslint-disable-line @typescript-eslint/no-unused-vars
+    updateIdentity, // eslint-disable-line @typescript-eslint/no-unused-vars
+    deleteIdentity, // eslint-disable-line @typescript-eslint/no-unused-vars
+    getIdentityById, // eslint-disable-line @typescript-eslint/no-unused-vars
+    refreshIdentities, // eslint-disable-line @typescript-eslint/no-unused-vars
+    clearError, // eslint-disable-line @typescript-eslint/no-unused-vars
   } = useIdentities();
 
   return null; // We're only testing the hook behavior
@@ -56,7 +56,7 @@ describe('IdentityContext', () => {
 
       mockStorageService.loadIdentities.mockResolvedValue(mockIdentities);
 
-      const {getByTestId} = render(
+      const {getByTestId} = render( // eslint-disable-line @typescript-eslint/no-unused-vars
         <IdentityProvider>
           <TestComponent />
         </IdentityProvider>
@@ -268,7 +268,7 @@ describe('IdentityContext', () => {
     describe('getIdentityById', () => {
       it('should return identity from current state', () => {
         // First set up the context with an identity
-        const mockIdentities: Identity[] = [
+        const mockIdentities: Identity[] = [ // eslint-disable-line @typescript-eslint/no-unused-vars
           {
             id: '1',
             name: 'John Doe',

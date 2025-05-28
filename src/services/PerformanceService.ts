@@ -142,7 +142,7 @@ export class PerformanceService {
     totalOperations: number;
   } {
     const completedMetrics = this.getAllMetrics();
-    
+
     // Find slowest operations
     const slowestOperations = completedMetrics
       .sort((a, b) => (b.duration || 0) - (a.duration || 0))
@@ -287,7 +287,7 @@ export function trackPerformance(operationName?: string) {
     descriptor.value = function (...args: any[]) {
       const performanceService = PerformanceService.getInstance();
       const timerName = `${trackingName}_${Date.now()}`;
-      
+
       performanceService.startTimer(timerName, {
         className: target.constructor.name,
         methodName: propertyName,
@@ -296,7 +296,7 @@ export function trackPerformance(operationName?: string) {
 
       try {
         const result = method.apply(this, args);
-        
+
         // Handle async methods
         if (result && typeof result.then === 'function') {
           return result.finally(() => {

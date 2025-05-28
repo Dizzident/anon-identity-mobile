@@ -61,9 +61,10 @@ describe('AnonIdentityService', () => {
     });
 
     it('should handle initialization errors', async () => {
-      (UserWallet.create as jest.Mock).mockRejectedValue(new Error('Init error'));
+      (UserWallet.create as jest.Mock).mockRejectedValueOnce(new Error('Init error'));
 
       await expect(service.initialize()).rejects.toThrow('Failed to initialize identity service');
+      expect(service.isInitialized()).toBe(false);
     });
   });
 
@@ -116,8 +117,22 @@ describe('AnonIdentityService', () => {
     describe('getAllCredentials', () => {
       it('should return all credentials', async () => {
         const mockCredentials = [
-          {id: 'cred-1', credentialSubject: {name: 'John'}},
-          {id: 'cred-2', credentialSubject: {name: 'Jane'}},
+          {
+            id: 'cred-1',
+            '@context': ['https://www.w3.org/2018/credentials/v1'],
+            type: ['VerifiableCredential'],
+            issuer: 'did:example:issuer',
+            issuanceDate: '2024-01-15T00:00:00Z',
+            credentialSubject: {id: 'did:example:john', name: 'John'},
+          },
+          {
+            id: 'cred-2',
+            '@context': ['https://www.w3.org/2018/credentials/v1'],
+            type: ['VerifiableCredential'],
+            issuer: 'did:example:issuer',
+            issuanceDate: '2024-01-15T00:00:00Z',
+            credentialSubject: {id: 'did:example:jane', name: 'Jane'},
+          },
         ] as VerifiableCredential[];
 
         mockWallet.getAllCredentials.mockResolvedValue(mockCredentials);
@@ -144,7 +159,7 @@ describe('AnonIdentityService', () => {
         mockWallet.createVerifiablePresentation.mockResolvedValue(mockPresentation);
 
         const presentation = await service.createPresentation(['cred-1', 'cred-2']);
-        
+
         expect(mockWallet.createVerifiablePresentation).toHaveBeenCalledWith(['cred-1', 'cred-2']);
         expect(presentation).toEqual(mockPresentation);
       });
@@ -164,7 +179,7 @@ describe('AnonIdentityService', () => {
         mockWallet.createSelectiveDisclosurePresentation.mockResolvedValue(mockPresentation);
 
         const presentation = await service.createSelectiveDisclosurePresentation(disclosureRequests);
-        
+
         expect(mockWallet.createSelectiveDisclosurePresentation).toHaveBeenCalledWith(disclosureRequests);
         expect(presentation).toEqual(mockPresentation);
       });
@@ -244,6 +259,7 @@ describe('AnonIdentityService', () => {
 
     it('should extract identity data from credential', async () => {
       const credential = {
+        id: 'cred-123',
         '@context': ['https://www.w3.org/2018/credentials/v1'],
         type: ['VerifiableCredential'],
         issuer: 'did:example:issuer',
@@ -275,6 +291,7 @@ describe('AnonIdentityService', () => {
 
     it('should handle alternative field names', async () => {
       const credential = {
+        id: 'cred-456',
         '@context': ['https://www.w3.org/2018/credentials/v1'],
         type: ['VerifiableCredential'],
         issuer: 'did:example:issuer',
@@ -309,7 +326,7 @@ describe('AnonIdentityService', () => {
 
       expect(result).toEqual({});
       expect(consoleSpy).toHaveBeenCalledWith('Failed to extract identity from credential:', expect.any(Error));
-      
+
       consoleSpy.mockRestore();
     });
   });
@@ -322,7 +339,14 @@ describe('AnonIdentityService', () => {
     it('should return complete identity data', async () => {
       const mockDID = 'did:example:123';
       const mockCredentials = [
-        {id: 'cred-1', credentialSubject: {name: 'John'}},
+        {
+          id: 'cred-1',
+          '@context': ['https://www.w3.org/2018/credentials/v1'],
+          type: ['VerifiableCredential'],
+          issuer: 'did:example:issuer',
+          issuanceDate: '2024-01-15T00:00:00Z',
+          credentialSubject: {id: 'did:example:john', name: 'John'},
+        },
       ] as VerifiableCredential[];
 
       mockWallet.getDID.mockReturnValue(mockDID);

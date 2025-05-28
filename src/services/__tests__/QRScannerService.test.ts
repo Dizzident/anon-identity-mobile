@@ -82,7 +82,7 @@ describe('QRScannerService', () => {
       });
 
       const result = scannerService.parseQRData(jsonData);
-      
+
       expect(result.name).toBe('John Doe');
       expect(result.email).toBe('john@example.com');
       expect(result.phone).toBe('+1234567890');
@@ -121,7 +121,7 @@ describe('QRScannerService', () => {
       });
 
       const result = scannerService.parseQRData(jsonData);
-      
+
       expect(result.name).toBe('Jane Smith');
       expect(result.email).toBe('jane@example.com');
       expect(result.phone).toBe('+0987654321');
@@ -151,7 +151,7 @@ describe('QRScannerService', () => {
       });
 
       const result = scannerService.parseQRData(jsonData);
-      
+
       expect(result.name).toBe('John Doe');
       expect(result.email).toBe('john@example.com');
       expect(result.additionalData).toEqual({
@@ -170,7 +170,7 @@ describe('QRScannerService', () => {
       });
 
       const result = scannerService.parseQRData(jsonData);
-      
+
       expect(result.additionalData).toBeUndefined();
     });
   });

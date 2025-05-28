@@ -52,10 +52,10 @@ export class IdentityValidationService {
           if (!identity.email) {
             return {valid: true, score: 0}; // Email is optional
           }
-          
+
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           const isValid = emailRegex.test(identity.email);
-          
+
           return {
             valid: isValid,
             error: isValid ? undefined : 'Invalid email format',
@@ -69,11 +69,11 @@ export class IdentityValidationService {
           if (!identity.phone) {
             return {valid: true, score: 0}; // Phone is optional
           }
-          
+
           // Basic phone validation (supports various formats)
-          const phoneRegex = /^[\+]?[\d\s\-\(\)]{10,}$/;
+          const phoneRegex = /^[+]?[\d\s\-()]{10,}$/;
           const isValid = phoneRegex.test(identity.phone);
-          
+
           return {
             valid: isValid,
             error: isValid ? undefined : 'Invalid phone number format',
@@ -85,7 +85,7 @@ export class IdentityValidationService {
         name: 'QR Data Integrity',
         validate: (identity: Identity) => {
           const hasQRData = !!(identity.qrData && identity.qrData.trim().length > 0);
-          
+
           if (!hasQRData) {
             return {
               valid: false,
@@ -100,7 +100,7 @@ export class IdentityValidationService {
             return {valid: true, score: 15}; // Valid JSON
           } catch {
             // Not JSON, check if it's a valid simple format
-            const hasValidFormat = identity.qrData.includes('@') || 
+            const hasValidFormat = identity.qrData.includes('@') ||
                                  identity.qrData.includes('identity:') ||
                                  identity.qrData.includes('user:');
             return {
@@ -128,9 +128,9 @@ export class IdentityValidationService {
           let completeness = 0;
           const fields = [identity.name, identity.email, identity.phone];
           const filledFields = fields.filter(field => field && field.trim().length > 0).length;
-          
+
           completeness = Math.round((filledFields / fields.length) * 100);
-          
+
           return {
             valid: true,
             warning: completeness < 67 ? 'Identity data is incomplete' : undefined,
@@ -145,7 +145,7 @@ export class IdentityValidationService {
             identity.additionalData?.credentialId ||
             identity.additionalData?.credentials?.length > 0
           );
-          
+
           if (!hasCredentials) {
             return {
               valid: true,
@@ -207,15 +207,15 @@ export class IdentityValidationService {
     for (const rule of this.rules) {
       try {
         const result = rule.validate(identity);
-        
+
         if (!result.valid && result.error) {
           errors.push(result.error);
         }
-        
+
         if (result.warning) {
           warnings.push(result.warning);
         }
-        
+
         totalScore += result.score;
       } catch (error) {
         console.error(`Error running validation rule ${rule.name}:`, error);
@@ -251,7 +251,7 @@ export class IdentityValidationService {
 
     const validCount = results.filter(r => r.validation.isValid).length;
     const invalidCount = results.length - validCount;
-    const averageScore = results.length > 0 
+    const averageScore = results.length > 0
       ? Math.round(results.reduce((sum, r) => sum + r.validation.score, 0) / results.length)
       : 0;
 
@@ -300,29 +300,29 @@ export class IdentityValidationService {
     recommendations: string[];
   } {
     const validation = this.validateIdentity(identity);
-    
+
     let level: 'excellent' | 'good' | 'fair' | 'poor';
-    if (validation.score >= 80) level = 'excellent';
-    else if (validation.score >= 60) level = 'good';
-    else if (validation.score >= 40) level = 'fair';
-    else level = 'poor';
+    if (validation.score >= 80) {level = 'excellent';}
+    else if (validation.score >= 60) {level = 'good';}
+    else if (validation.score >= 40) {level = 'fair';}
+    else {level = 'poor';}
 
     const primaryIssues = [...validation.errors, ...validation.warnings.slice(0, 3)];
-    
+
     const recommendations: string[] = [];
-    
+
     if (!identity.isVerified) {
       recommendations.push('Scan a QR code with verifiable credentials to improve trust');
     }
-    
+
     if (!identity.email) {
       recommendations.push('Add an email address for better identity verification');
     }
-    
+
     if (!identity.phone) {
       recommendations.push('Add a phone number for additional contact information');
     }
-    
+
     if (validation.errors.length > 0) {
       recommendations.push('Fix validation errors to improve identity reliability');
     }

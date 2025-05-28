@@ -14,7 +14,7 @@ export interface IdentityData {
 export class AnonIdentityService {
   private static instance: AnonIdentityService;
   private wallet: UserWallet | null = null;
-  private isInitialized = false;
+  private initialized = false;
 
   private constructor() {}
 
@@ -27,7 +27,7 @@ export class AnonIdentityService {
 
   async initialize(config: AnonIdentityConfig = {storageType: 'memory'}): Promise<void> {
     try {
-      if (this.isInitialized && this.wallet) {
+      if (this.initialized && this.wallet) {
         return;
       }
 
@@ -38,7 +38,7 @@ export class AnonIdentityService {
         this.wallet = await UserWallet.create();
       }
 
-      this.isInitialized = true;
+      this.initialized = true;
       console.log('AnonIdentityService initialized successfully');
     } catch (error) {
       console.error('Failed to initialize AnonIdentityService:', error);
@@ -104,7 +104,7 @@ export class AnonIdentityService {
     }
 
     try {
-      return await this.wallet.createSelectiveDisclosurePresentation(disclosureRequests);
+      return await this.wallet.createSelectiveDisclosurePresentation(disclosureRequests as any);
     } catch (error) {
       console.error('Failed to create selective disclosure presentation:', error);
       throw new Error('Failed to create selective disclosure presentation');
@@ -115,7 +115,7 @@ export class AnonIdentityService {
     try {
       // Try to parse QR data as JSON first
       const parsed = JSON.parse(qrData);
-      
+
       // Check if it's a verifiable credential
       if (this.isVerifiableCredential(parsed)) {
         return parsed as VerifiableCredential;
@@ -157,7 +157,7 @@ export class AnonIdentityService {
   }> {
     try {
       const subject = credential.credentialSubject;
-      
+
       return {
         name: subject.givenName || subject.name || subject.fullName,
         email: subject.email || subject.emailAddress,
@@ -172,11 +172,11 @@ export class AnonIdentityService {
     }
   }
 
-  private extractAdditionalAttributes(subject: any): Record<string, any> {
+  private extractAdditionalAttributes(subject: any): Record<string, any> | undefined {
     const knownFields = [
       'id', 'givenName', 'name', 'fullName', 'email', 'emailAddress',
       'phone', 'phoneNumber', 'mobile', 'dateOfBirth', 'dob',
-      'address', 'streetAddress'
+      'address', 'streetAddress',
     ];
 
     const additionalData: Record<string, any> = {};
@@ -198,7 +198,7 @@ export class AnonIdentityService {
     try {
       const did = await this.getWalletDID();
       const credentials = await this.getAllCredentials();
-      
+
       // For now, return empty presentations array
       // In a real implementation, you might want to store presentations separately
       const presentations: VerifiablePresentation[] = [];
@@ -215,11 +215,11 @@ export class AnonIdentityService {
   }
 
   isInitialized(): boolean {
-    return this.isInitialized && this.wallet !== null;
+    return this.initialized && this.wallet !== null;
   }
 
   reset(): void {
     this.wallet = null;
-    this.isInitialized = false;
+    this.initialized = false;
   }
 }

@@ -6,7 +6,7 @@ export interface VerifiableCredential {
   id?: string;
   issuer: string;
   issuanceDate: string;
-  credentialSubject: Record<string, any>;
+  credentialSubject: Record<string, any> & { id?: string };
   proof?: any;
 }
 
@@ -35,7 +35,7 @@ export class UserWallet {
     return new UserWallet();
   }
 
-  static async restore(passphrase: string, identifier?: string): Promise<UserWallet> {
+  static async restore(_passphrase: string, _identifier?: string): Promise<UserWallet> {
     return new UserWallet();
   }
 
@@ -52,7 +52,7 @@ export class UserWallet {
   }
 
   async createVerifiablePresentation(credentialIds: string[]): Promise<VerifiablePresentation> {
-    const filteredCredentials = this.credentials.filter(cred => 
+    const filteredCredentials = this.credentials.filter(cred =>
       credentialIds.includes(cred.id || '')
     );
 
@@ -65,7 +65,7 @@ export class UserWallet {
   }
 
   async createSelectiveDisclosurePresentation(
-    disclosureRequests: Array<{
+    _disclosureRequests: Array<{
       credentialId: string;
       attributes: string[];
     }>
@@ -107,7 +107,7 @@ export class IdentityProvider {
     };
   }
 
-  async revokeCredential(credentialId: string): Promise<void> {
+  async revokeCredential(_credentialId: string): Promise<void> {
     // Mock implementation
   }
 }
@@ -121,7 +121,7 @@ export class ServiceProvider {
     this.trustedIssuers = trustedIssuers;
   }
 
-  async verifyPresentation(presentation: VerifiablePresentation): Promise<{
+  async verifyPresentation(_presentation: VerifiablePresentation): Promise<{
     verified: boolean;
     errors?: string[];
   }> {

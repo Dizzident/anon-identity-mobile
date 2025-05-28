@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState, ReactNode} from 'react';
+import React, {createContext, useContext, useEffect, useState, useCallback, ReactNode} from 'react';
 import {Identity} from '../types/Identity';
 import {IdentityStorageService} from '../services/IdentityStorage';
 
@@ -27,7 +27,7 @@ export function IdentityProvider({children}: IdentityProviderProps) {
 
   const storageService = IdentityStorageService.getInstance();
 
-  const loadIdentities = async () => {
+  const loadIdentities = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -39,7 +39,7 @@ export function IdentityProvider({children}: IdentityProviderProps) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [storageService]);
 
   const addIdentity = async (identity: Omit<Identity, 'id' | 'dateAdded'>): Promise<Identity> => {
     try {
@@ -103,7 +103,7 @@ export function IdentityProvider({children}: IdentityProviderProps) {
 
   useEffect(() => {
     loadIdentities();
-  }, []);
+  }, [loadIdentities]);
 
   const value: IdentityContextType = {
     identities,

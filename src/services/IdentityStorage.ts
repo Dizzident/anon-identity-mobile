@@ -68,7 +68,7 @@ export class IdentityStorageService {
     try {
       const identities = await this.loadIdentities();
       const index = identities.findIndex(identity => identity.id === id);
-      
+
       if (index === -1) {
         return null;
       }
@@ -86,7 +86,7 @@ export class IdentityStorageService {
     try {
       const identities = await this.loadIdentities();
       const filteredIdentities = identities.filter(identity => identity.id !== id);
-      
+
       if (filteredIdentities.length === identities.length) {
         return false; // Identity not found
       }

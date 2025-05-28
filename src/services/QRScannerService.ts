@@ -20,33 +20,19 @@ export class QRScannerService {
   }
 
   async checkPermissions(): Promise<QRScannerPermissions> {
-    try {
-      // For now, we'll assume permissions are granted
-      // In a real implementation, this would check actual camera permissions
-      return {
-        camera: true,
-      };
-    } catch (error) {
-      console.error('Error checking permissions:', error);
-      return {
-        camera: false,
-      };
-    }
+    // For now, we'll assume permissions are granted
+    // In a real implementation, this would check actual camera permissions
+    return {
+      camera: true,
+    };
   }
 
   async requestPermissions(): Promise<QRScannerPermissions> {
-    try {
-      // For now, we'll simulate permission request
-      // In a real implementation, this would request actual camera permissions
-      return {
-        camera: true,
-      };
-    } catch (error) {
-      console.error('Error requesting permissions:', error);
-      return {
-        camera: false,
-      };
-    }
+    // For now, we'll simulate permission request
+    // In a real implementation, this would request actual camera permissions
+    return {
+      camera: true,
+    };
   }
 
   validateQRData(data: string): {isValid: boolean; error?: string} {
@@ -80,19 +66,19 @@ export class QRScannerService {
     try {
       // Try to parse as JSON first
       const parsed = JSON.parse(data);
-      
+
       // Check if it has required fields for an identity
       if (typeof parsed === 'object' && parsed !== null) {
         // Must have at least a name or identifier
         return !!(parsed.name || parsed.id || parsed.identifier);
       }
-      
+
       // If not JSON, check if it's a simple string format
       // For example: "identity:john.doe@example.com" or similar
       if (typeof data === 'string') {
         return data.includes('@') || data.includes('identity:') || data.includes('user:');
       }
-      
+
       return false;
     } catch {
       // If JSON parsing fails, check for other formats
@@ -113,7 +99,7 @@ export class QRScannerService {
     try {
       // Try to parse as JSON
       const parsed = JSON.parse(data);
-      
+
       if (typeof parsed === 'object' && parsed !== null) {
         return {
           name: parsed.name || parsed.displayName || parsed.fullName,
@@ -131,7 +117,7 @@ export class QRScannerService {
     return {};
   }
 
-  private extractAdditionalData(parsed: any): Record<string, any> {
+  private extractAdditionalData(parsed: any): Record<string, any> | undefined {
     const knownFields = ['name', 'displayName', 'fullName', 'email', 'emailAddress', 'phone', 'phoneNumber', 'mobile', 'id', 'identifier', 'userId'];
     const additionalData: Record<string, any> = {};
 
@@ -154,22 +140,22 @@ export class QRScannerService {
     // "identity:john.doe@example.com"
     // "user:John Doe <john.doe@example.com>"
     // "john.doe@example.com"
-    
+
     if (data.includes('identity:')) {
       const identityData = data.replace('identity:', '');
       return this.parseEmailFormat(identityData);
     }
-    
+
     if (data.includes('user:')) {
       const userData = data.replace('user:', '');
       return this.parseUserFormat(userData);
     }
-    
+
     // Simple email format
     if (data.includes('@')) {
       return this.parseEmailFormat(data);
     }
-    
+
     return {
       identifier: data,
     };
@@ -180,13 +166,13 @@ export class QRScannerService {
       // Format: "John Doe <john.doe@example.com>"
       const nameMatch = data.match(/^([^<]+)</);
       const emailMatch = data.match(/<([^>]+)>/);
-      
+
       return {
         name: nameMatch ? nameMatch[1].trim() : undefined,
         email: emailMatch ? emailMatch[1].trim() : undefined,
       };
     }
-    
+
     // Simple email
     return {
       email: data.trim(),

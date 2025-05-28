@@ -24,13 +24,13 @@ const Stack = createStackNavigator<RootStackParamList>();
 function IdentityStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen 
-        name="Home" 
+      <Stack.Screen
+        name="Home"
         component={IdentityListScreen}
         options={{title: 'My Identities'}}
       />
-      <Stack.Screen 
-        name="IdentityDetail" 
+      <Stack.Screen
+        name="IdentityDetail"
         component={IdentityDetailScreen}
         options={{title: 'Identity Details'}}
       />
@@ -42,13 +42,13 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen 
-          name="Identities" 
+        <Tab.Screen
+          name="Identities"
           component={IdentityStack}
           options={{headerShown: false}}
         />
-        <Tab.Screen 
-          name="Scanner" 
+        <Tab.Screen
+          name="Scanner"
           component={QRScannerScreen}
           options={{title: 'Scan QR Code'}}
         />

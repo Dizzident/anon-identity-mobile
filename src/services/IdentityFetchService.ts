@@ -51,7 +51,7 @@ export class IdentityFetchService {
 
       // Get all credentials from the anon-identity wallet
       const credentials = await this.anonIdentityService.getAllCredentials();
-      
+
       // Find credentials related to this identity
       const relatedCredentials = credentials.filter(cred => {
         const subject = cred.credentialSubject;
@@ -73,7 +73,7 @@ export class IdentityFetchService {
 
       // Extract and merge data from all related credentials
       const populatedData = await this.mergeCredentialData(relatedCredentials);
-      
+
       // Update the identity with populated data
       const updatedIdentity: Identity = {
         ...existingIdentity,
@@ -130,7 +130,7 @@ export class IdentityFetchService {
       }
 
       const data = await response.json();
-      
+
       // Try to parse as verifiable credential
       const credential = await this.anonIdentityService.parseCredentialFromQR(
         JSON.stringify(data)
@@ -139,10 +139,10 @@ export class IdentityFetchService {
       if (credential) {
         // Store the credential
         await this.anonIdentityService.storeCredential(credential);
-        
+
         // Extract identity data
         const identityData = await this.anonIdentityService.extractIdentityFromCredential(credential);
-        
+
         // Create new identity
         const newIdentity: Omit<Identity, 'id' | 'dateAdded'> = {
           name: identityData.name || 'Remote Identity',
@@ -243,12 +243,12 @@ export class IdentityFetchService {
 
     for (const credential of credentials) {
       const extracted = await this.anonIdentityService.extractIdentityFromCredential(credential);
-      
+
       // Take the first non-empty value for each field
-      if (extracted.name && !merged.name) merged.name = extracted.name;
-      if (extracted.email && !merged.email) merged.email = extracted.email;
-      if (extracted.phone && !merged.phone) merged.phone = extracted.phone;
-      
+      if (extracted.name && !merged.name) {merged.name = extracted.name;}
+      if (extracted.email && !merged.email) {merged.email = extracted.email;}
+      if (extracted.phone && !merged.phone) {merged.phone = extracted.phone;}
+
       // Merge additional data
       if (extracted.additionalData) {
         Object.assign(merged.additionalData, extracted.additionalData);
@@ -291,7 +291,7 @@ export class IdentityFetchService {
 
       // Get all credentials
       const credentials = await this.anonIdentityService.getAllCredentials();
-      
+
       // Find credentials for this identity
       const identityCredentials = credentials.filter(cred => {
         const subject = cred.credentialSubject;

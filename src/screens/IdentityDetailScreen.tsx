@@ -30,15 +30,15 @@ function IdentityDetailScreen() {
   const navigation = useNavigation<IdentityDetailScreenNavigationProp>();
   const {identityId} = route.params;
   const {getIdentityById, deleteIdentity} = useIdentities();
-  
+
   const identity = getIdentityById(identityId);
-  
+
   // Track screen views for analytics
   useScreenTracking('IdentityDetail');
 
   // Validate the identity and get summary
   const validationSummary = useMemo(() => {
-    if (!identity) return null;
+    if (!identity) {return null;}
     const validationService = IdentityValidationService.getInstance();
     return validationService.getValidationSummary(identity);
   }, [identity]);
@@ -88,25 +88,25 @@ function IdentityDetailScreen() {
           <Text style={styles.name}>{identity.name}</Text>
           <View style={[
             styles.statusBadge,
-            identity.isVerified ? styles.verifiedBadge : styles.pendingBadge
+            identity.isVerified ? styles.verifiedBadge : styles.pendingBadge,
           ]}>
             <Text style={[
               styles.statusText,
-              identity.isVerified ? styles.verifiedText : styles.pendingText
+              identity.isVerified ? styles.verifiedText : styles.pendingText,
             ]}>
               {identity.isVerified ? 'Verified' : 'Pending Verification'}
             </Text>
           </View>
-          
+
           {/* Validation Score Display */}
           {validationSummary && (
             <View style={[
               styles.validationBadge,
-              styles[`${validationSummary.level}Badge`]
+              styles[`${validationSummary.level}Badge`],
             ]}>
               <Text style={[
                 styles.validationText,
-                styles[`${validationSummary.level}Text`]
+                styles[`${validationSummary.level}Text`],
               ]}>
                 {validationSummary.level.toUpperCase()} ({validationSummary.score}/100)
               </Text>
@@ -162,7 +162,7 @@ function IdentityDetailScreen() {
         {validationSummary && (validationSummary.primaryIssues.length > 0 || validationSummary.recommendations.length > 0) && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Identity Health</Text>
-            
+
             {validationSummary.primaryIssues.length > 0 && (
               <View style={styles.field}>
                 <Text style={styles.fieldLabel}>Issues Found</Text>
@@ -171,7 +171,7 @@ function IdentityDetailScreen() {
                 ))}
               </View>
             )}
-            
+
             {validationSummary.recommendations.length > 0 && (
               <View style={styles.field}>
                 <Text style={styles.fieldLabel}>Recommendations</Text>

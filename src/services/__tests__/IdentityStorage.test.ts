@@ -99,7 +99,7 @@ describe('IdentityStorageService', () => {
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 
       await expect(storageService.saveIdentities([])).rejects.toThrow('Failed to save identities');
-      
+
       expect(consoleSpy).toHaveBeenCalledWith('Error saving identities:', expect.any(Error));
       consoleSpy.mockRestore();
     });
@@ -285,7 +285,7 @@ describe('IdentityStorageService', () => {
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 
       await expect(storageService.clearAllIdentities()).rejects.toThrow('Failed to clear identities');
-      
+
       expect(consoleSpy).toHaveBeenCalledWith('Error clearing identities:', expect.any(Error));
       consoleSpy.mockRestore();
     });
