@@ -15,7 +15,10 @@
       "Bash(npm run lint:*)",
       "Bash(npm run:*)",
       "Bash(npx eslint:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(chmod:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   },
   "enableAllProjectMcpServers": false
