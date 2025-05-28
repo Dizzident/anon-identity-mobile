@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npx @react-native-community/cli:*)",
+      "Bash(npx react-native:*)",
+      "Bash(mv:*)",
+      "Bash(true)",
+      "Bash(rmdir:*)",
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)"
     ]
   },
   "enableAllProjectMcpServers": false
