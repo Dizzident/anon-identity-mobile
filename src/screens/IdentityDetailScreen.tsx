@@ -7,9 +7,12 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  Share,
+  Clipboard,
 } from 'react-native';
-import {RouteProp, useRoute, useNavigation} from '@react-navigation/native';
+import {RouteProp, useRoute, useNavigation, useTheme} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {RootStackParamList} from '../navigation/AppNavigator';
 import {useIdentities} from '../context/IdentityContext';
 import {useScreenTracking} from '../hooks/usePerformance';
@@ -28,6 +31,7 @@ type IdentityDetailScreenNavigationProp = StackNavigationProp<
 function IdentityDetailScreen() {
   const route = useRoute<IdentityDetailScreenRouteProp>();
   const navigation = useNavigation<IdentityDetailScreenNavigationProp>();
+  const theme = useTheme();
   const {identityId} = route.params;
   const {getIdentityById, deleteIdentity} = useIdentities();
 
@@ -68,12 +72,33 @@ function IdentityDetailScreen() {
     );
   };
 
+  const handleCopy = (field: string, value: string) => {
+    Clipboard.setString(value);
+    Alert.alert('Copied', `${field} copied to clipboard`);
+  };
+
+  const handleShare = async () => {
+    if (!identity) return;
+    
+    try {
+      const message = `Identity: ${identity.name}\nEmail: ${identity.email}${identity.phone ? `\nPhone: ${identity.phone}` : ''}`;
+      await Share.share({ message });
+    } catch (error) {
+      Alert.alert('Error', 'Failed to share identity');
+    }
+  };
+
   if (!identity) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={[styles.container, {backgroundColor: theme.colors.background}]}>
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>Identity not found</Text>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Icon name="error-outline" size={48} color={theme.colors.textSecondary} />
+          <Text style={[styles.errorText, {color: theme.colors.textSecondary}]}>Identity not found</Text>
+          <TouchableOpacity 
+            style={[styles.backButton, {backgroundColor: theme.colors.primary}]} 
+            onPress={() => navigation.goBack()}
+          >
+            <Icon name="arrow-back" size={20} color="#fff" />
             <Text style={styles.backButtonText}>Go Back</Text>
           </TouchableOpacity>
         </View>
@@ -81,78 +106,148 @@ function IdentityDetailScreen() {
     );
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.header}>
-          <Text style={styles.name}>{identity.name}</Text>
-          <View style={[
-            styles.statusBadge,
-            identity.isVerified ? styles.verifiedBadge : styles.pendingBadge,
-          ]}>
-            <Text style={[
-              styles.statusText,
-              identity.isVerified ? styles.verifiedText : styles.pendingText,
-            ]}>
-              {identity.isVerified ? 'Verified' : 'Pending Verification'}
-            </Text>
-          </View>
+  // Determine score color based on validation level
+  const getScoreColor = (level: string) => {
+    switch (level) {
+      case 'excellent': return theme.colors.success;
+      case 'good': return theme.colors.info;
+      case 'fair': return theme.colors.warning;
+      case 'poor': return theme.colors.error;
+      default: return theme.colors.textSecondary;
+    }
+  };
 
-          {/* Validation Score Display */}
-          {validationSummary && (
+  return (
+    <SafeAreaView style={[styles.container, {backgroundColor: theme.colors.background}]}>
+      <ScrollView style={styles.scrollView}>
+        <View style={[styles.header, {backgroundColor: theme.colors.card, borderBottomColor: theme.colors.border}]}>
+          <View style={styles.headerTop}>
+            <Text style={[styles.name, {color: theme.colors.text}]}>{identity.name}</Text>
+            <TouchableOpacity onPress={handleShare}>
+              <Icon name="share" size={24} color={theme.colors.primary} />
+            </TouchableOpacity>
+          </View>
+          
+          <View style={styles.badges}>
             <View style={[
-              styles.validationBadge,
-              styles[`${validationSummary.level}Badge`],
+              styles.statusBadge,
+              {backgroundColor: identity.isVerified ? theme.colors.success + '20' : theme.colors.warning + '20'},
             ]}>
+              <Icon 
+                name={identity.isVerified ? 'verified-user' : 'pending'} 
+                size={16} 
+                color={identity.isVerified ? theme.colors.success : theme.colors.warning}
+              />
               <Text style={[
-                styles.validationText,
-                styles[`${validationSummary.level}Text`],
+                styles.statusText,
+                {color: identity.isVerified ? theme.colors.success : theme.colors.warning},
               ]}>
-                {validationSummary.level.toUpperCase()} ({validationSummary.score}/100)
+                {identity.isVerified ? 'Verified' : 'Pending Verification'}
               </Text>
             </View>
-          )}
+
+            {/* Validation Score Display */}
+            {validationSummary && (
+              <View style={[
+                styles.validationBadge,
+                {backgroundColor: getScoreColor(validationSummary.level) + '20'},
+              ]}>
+                <Icon 
+                  name={validationSummary.score >= 80 ? 'check-circle' : validationSummary.score >= 60 ? 'info' : 'warning'} 
+                  size={16} 
+                  color={getScoreColor(validationSummary.level)}
+                />
+                <Text style={[
+                  styles.validationText,
+                  {color: getScoreColor(validationSummary.level)},
+                ]}>
+                  {validationSummary.level.toUpperCase()} ({validationSummary.score}/100)
+                </Text>
+              </View>
+            )}
+          </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Contact Information</Text>
-          <View style={styles.field}>
-            <Text style={styles.fieldLabel}>Email</Text>
-            <Text style={styles.fieldValue}>{identity.email}</Text>
-          </View>
-          {identity.phone && (
-            <View style={styles.field}>
-              <Text style={styles.fieldLabel}>Phone</Text>
-              <Text style={styles.fieldValue}>{identity.phone}</Text>
+        <View style={[styles.section, {backgroundColor: theme.colors.card, borderColor: theme.colors.border}]}>
+          <Text style={[styles.sectionTitle, {color: theme.colors.text}]}>Contact Information</Text>
+          
+          <TouchableOpacity 
+            style={styles.field} 
+            onPress={() => handleCopy('Email', identity.email)}
+          >
+            <View style={styles.fieldRow}>
+              <Icon name="email" size={20} color={theme.colors.primary} />
+              <View style={styles.fieldContent}>
+                <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>Email</Text>
+                <Text style={[styles.fieldValue, {color: theme.colors.text}]}>{identity.email}</Text>
+              </View>
+              <Icon name="content-copy" size={18} color={theme.colors.textSecondary} />
             </View>
+          </TouchableOpacity>
+          
+          {identity.phone && (
+            <TouchableOpacity 
+              style={styles.field} 
+              onPress={() => handleCopy('Phone', identity.phone!)}
+            >
+              <View style={styles.fieldRow}>
+                <Icon name="phone" size={20} color={theme.colors.primary} />
+                <View style={styles.fieldContent}>
+                  <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>Phone</Text>
+                  <Text style={[styles.fieldValue, {color: theme.colors.text}]}>{identity.phone}</Text>
+                </View>
+                <Icon name="content-copy" size={18} color={theme.colors.textSecondary} />
+              </View>
+            </TouchableOpacity>
           )}
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Identity Details</Text>
+        <View style={[styles.section, {backgroundColor: theme.colors.card, borderColor: theme.colors.border}]}>
+          <Text style={[styles.sectionTitle, {color: theme.colors.text}]}>Identity Details</Text>
+          
           <View style={styles.field}>
-            <Text style={styles.fieldLabel}>Date Added</Text>
-            <Text style={styles.fieldValue}>
-              {identity.dateAdded.toLocaleDateString()}
-            </Text>
+            <View style={styles.fieldRow}>
+              <Icon name="calendar-today" size={20} color={theme.colors.primary} />
+              <View style={styles.fieldContent}>
+                <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>Date Added</Text>
+                <Text style={[styles.fieldValue, {color: theme.colors.text}]}>
+                  {identity.dateAdded.toLocaleDateString()}
+                </Text>
+              </View>
+            </View>
           </View>
-          <View style={styles.field}>
-            <Text style={styles.fieldLabel}>QR Code Data</Text>
-            <Text style={styles.fieldValue} numberOfLines={2}>
-              {identity.qrData}
-            </Text>
-          </View>
+          
+          <TouchableOpacity 
+            style={styles.field} 
+            onPress={() => handleCopy('QR Code Data', identity.qrData)}
+          >
+            <View style={styles.fieldRow}>
+              <Icon name="qr-code" size={20} color={theme.colors.primary} />
+              <View style={styles.fieldContent}>
+                <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>QR Code Data</Text>
+                <Text style={[styles.fieldValue, {color: theme.colors.text}]} numberOfLines={2}>
+                  {identity.qrData}
+                </Text>
+              </View>
+              <Icon name="content-copy" size={18} color={theme.colors.textSecondary} />
+            </View>
+          </TouchableOpacity>
         </View>
 
         {identity.additionalData && Object.keys(identity.additionalData).length > 0 && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Additional Information</Text>
+          <View style={[styles.section, {backgroundColor: theme.colors.card, borderColor: theme.colors.border}]}>
+            <Text style={[styles.sectionTitle, {color: theme.colors.text}]}>Additional Information</Text>
             {Object.entries(identity.additionalData).map(([key, value]) => (
               <View key={key} style={styles.field}>
-                <Text style={styles.fieldLabel}>
-                  {key.charAt(0).toUpperCase() + key.slice(1)}
-                </Text>
-                <Text style={styles.fieldValue}>{String(value)}</Text>
+                <View style={styles.fieldRow}>
+                  <Icon name="info" size={20} color={theme.colors.primary} />
+                  <View style={styles.fieldContent}>
+                    <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>
+                      {key.charAt(0).toUpperCase() + key.slice(1)}
+                    </Text>
+                    <Text style={[styles.fieldValue, {color: theme.colors.text}]}>{String(value)}</Text>
+                  </View>
+                </View>
               </View>
             ))}
           </View>
@@ -160,31 +255,47 @@ function IdentityDetailScreen() {
 
         {/* Validation Issues and Recommendations */}
         {validationSummary && (validationSummary.primaryIssues.length > 0 || validationSummary.recommendations.length > 0) && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Identity Health</Text>
+          <View style={[styles.section, {backgroundColor: theme.colors.card, borderColor: theme.colors.border}]}>
+            <Text style={[styles.sectionTitle, {color: theme.colors.text}]}>
+              <Icon name="favorite" size={20} color={theme.colors.primary} /> Identity Health
+            </Text>
 
             {validationSummary.primaryIssues.length > 0 && (
               <View style={styles.field}>
-                <Text style={styles.fieldLabel}>Issues Found</Text>
-                {validationSummary.primaryIssues.map((issue, index) => (
-                  <Text key={index} style={styles.issueText}>• {issue}</Text>
-                ))}
+                <View style={styles.fieldRow}>
+                  <Icon name="warning" size={20} color={theme.colors.error} />
+                  <View style={styles.fieldContent}>
+                    <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>Issues Found</Text>
+                    {validationSummary.primaryIssues.map((issue, index) => (
+                      <Text key={index} style={[styles.issueText, {color: theme.colors.error}]}>• {issue}</Text>
+                    ))}
+                  </View>
+                </View>
               </View>
             )}
 
             {validationSummary.recommendations.length > 0 && (
               <View style={styles.field}>
-                <Text style={styles.fieldLabel}>Recommendations</Text>
-                {validationSummary.recommendations.map((rec, index) => (
-                  <Text key={index} style={styles.recommendationText}>• {rec}</Text>
-                ))}
+                <View style={styles.fieldRow}>
+                  <Icon name="lightbulb" size={20} color={theme.colors.info} />
+                  <View style={styles.fieldContent}>
+                    <Text style={[styles.fieldLabel, {color: theme.colors.textSecondary}]}>Recommendations</Text>
+                    {validationSummary.recommendations.map((rec, index) => (
+                      <Text key={index} style={[styles.recommendationText, {color: theme.colors.info}]}>• {rec}</Text>
+                    ))}
+                  </View>
+                </View>
               </View>
             )}
           </View>
         )}
 
         <View style={styles.actions}>
-          <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+          <TouchableOpacity 
+            style={[styles.deleteButton, {backgroundColor: theme.colors.error}]} 
+            onPress={handleDelete}
+          >
+            <Icon name="delete" size={20} color="#fff" />
             <Text style={styles.deleteButtonText}>Delete Identity</Text>
           </TouchableOpacity>
         </View>
@@ -196,87 +307,93 @@ function IdentityDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
   },
   scrollView: {
     flex: 1,
   },
   header: {
-    backgroundColor: '#fff',
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+  },
+  headerTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 12,
   },
   name: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 12,
+    flex: 1,
+    marginRight: 12,
+  },
+  badges: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
   },
   statusBadge: {
-    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-  },
-  verifiedBadge: {
-    backgroundColor: '#E8F5E8',
-  },
-  pendingBadge: {
-    backgroundColor: '#FFF3CD',
+    gap: 4,
   },
   statusText: {
     fontSize: 12,
     fontWeight: '600',
   },
-  verifiedText: {
-    color: '#2E7D32',
-  },
-  pendingText: {
-    color: '#F57C00',
-  },
   section: {
-    backgroundColor: '#fff',
     marginTop: 16,
     padding: 20,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: '#e0e0e0',
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
     marginBottom: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   field: {
     marginBottom: 16,
   },
+  fieldRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+  },
+  fieldContent: {
+    flex: 1,
+  },
   fieldLabel: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#666',
     marginBottom: 4,
   },
   fieldValue: {
     fontSize: 16,
-    color: '#333',
   },
   errorContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
   },
   errorText: {
     fontSize: 18,
-    color: '#666',
     marginBottom: 20,
+    marginTop: 12,
   },
   backButton: {
-    backgroundColor: '#007AFF',
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 8,
+    gap: 8,
   },
   backButtonText: {
     color: '#fff',
@@ -288,10 +405,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   deleteButton: {
-    backgroundColor: '#FF3B30',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 16,
     borderRadius: 8,
-    alignItems: 'center',
+    gap: 8,
   },
   deleteButtonText: {
     color: '#fff',
@@ -299,48 +418,23 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   validationBadge: {
-    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-    marginTop: 8,
-  },
-  excellentBadge: {
-    backgroundColor: '#E8F5E8',
-  },
-  goodBadge: {
-    backgroundColor: '#E3F2FD',
-  },
-  fairBadge: {
-    backgroundColor: '#FFF3CD',
-  },
-  poorBadge: {
-    backgroundColor: '#FFEBEE',
+    gap: 4,
   },
   validationText: {
     fontSize: 12,
     fontWeight: '600',
   },
-  excellentText: {
-    color: '#2E7D32',
-  },
-  goodText: {
-    color: '#1976D2',
-  },
-  fairText: {
-    color: '#F57C00',
-  },
-  poorText: {
-    color: '#D32F2F',
-  },
   issueText: {
     fontSize: 14,
-    color: '#D32F2F',
     marginBottom: 4,
   },
   recommendationText: {
     fontSize: 14,
-    color: '#1976D2',
     marginBottom: 4,
   },
 });

@@ -23,7 +23,8 @@
       "Bash(./android/gradlew assembleRelease:*)",
       "Bash(./gradlew:*)",
       "Bash(npx rn-nodeify:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(mkdir:*)"
     ]
   },
   "enableAllProjectMcpServers": false
