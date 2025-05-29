@@ -1,4 +1,4 @@
-import {UserWallet, VerifiableCredential, VerifiablePresentation} from 'anon-identity';
+import {getAnonIdentityModule, VerifiableCredential, VerifiablePresentation} from './anon-identity-wrapper';
 
 export interface AnonIdentityConfig {
   storageType: 'memory' | 'file';
@@ -13,8 +13,9 @@ export interface IdentityData {
 
 export class AnonIdentityService {
   private static instance: AnonIdentityService;
-  private wallet: UserWallet | null = null;
+  private wallet: any | null = null;
   private initialized = false;
+  private UserWallet: any = null;
 
   private constructor() {}
 
@@ -31,11 +32,15 @@ export class AnonIdentityService {
         return;
       }
 
+      // Get the anon-identity module dynamically
+      const anonIdentity = await getAnonIdentityModule();
+      this.UserWallet = anonIdentity.UserWallet;
+
       // Create or restore wallet
       if (config.walletPassphrase) {
-        this.wallet = await UserWallet.restore(config.walletPassphrase);
+        this.wallet = await this.UserWallet.restore(config.walletPassphrase);
       } else {
-        this.wallet = await UserWallet.create();
+        this.wallet = await this.UserWallet.create();
       }
 
       this.initialized = true;

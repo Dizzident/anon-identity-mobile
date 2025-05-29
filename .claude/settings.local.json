@@ -18,7 +18,12 @@
       "Bash(npx tsc:*)",
       "Bash(chmod:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(grep:*)",
+      "Bash(./android/gradlew assembleRelease:*)",
+      "Bash(./gradlew:*)",
+      "Bash(npx rn-nodeify:*)",
+      "Bash(git restore:*)"
     ]
   },
   "enableAllProjectMcpServers": false
