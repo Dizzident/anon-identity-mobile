@@ -24,7 +24,9 @@
       "Bash(./gradlew:*)",
       "Bash(npx rn-nodeify:*)",
       "Bash(git restore:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npm start:*)",
+      "Bash(npm uninstall:*)"
     ]
   },
   "enableAllProjectMcpServers": false

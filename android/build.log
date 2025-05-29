@@ -1,0 +1,388 @@
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :app
+Build file '/mnt/c/git/anon-identity-mobile/android/app/build.gradle': line 76
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:76)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_a6wbtmlkassjeeps16d2xiv4t.run(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:75)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/android/app/build.gradle': line 78
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('compileSdk = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:78)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_a6wbtmlkassjeeps16d2xiv4t.run(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:75)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/android/app/build.gradle': line 80
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:80)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_a6wbtmlkassjeeps16d2xiv4t.run(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:75)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/android/app/build.gradle': line 98
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('signingConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2$_closure6$_closure8.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:98)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2$_closure6.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:97)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/android/app/build.gradle': line 103
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('signingConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2$_closure6$_closure9.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:103)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_a6wbtmlkassjeeps16d2xiv4t$_run_closure2$_closure6.doCall$original(/mnt/c/git/anon-identity-mobile/android/app/build.gradle:100)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-async-storage_async-storage
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle': line 42
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:42)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_d18w1amj1sljxnwo95czm66an.run(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:39)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle': line 44
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('buildConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2$_closure5.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:44)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:43)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle': line 55
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:55)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_d18w1amj1sljxnwo95czm66an.run(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:39)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle': line 68
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2$_closure7.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:68)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:67)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle': line 98
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure3$_closure12.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:98)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_d18w1amj1sljxnwo95czm66an$_run_closure3.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/@react-native-async-storage/async-storage/android/build.gradle:96)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-camera
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle': line 30
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('multiDexEnabled = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure1$_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:30)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:29)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle': line 47
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure1$_closure6.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:47)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:46)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle': line 59
+The RepositoryHandler.jcenter() method has been deprecated. This is scheduled to be removed in Gradle 9.0. JFrog announced JCenter's sunset in February 2021. Use mavenCentral() instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_6.html#jcenter_deprecation
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:59)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4jvlkzaa9tm8qiiganpu6926n.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:57)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle': line 61
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure2$_closure10.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:61)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:61)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle': line 64
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure2$_closure11.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:64)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4jvlkzaa9tm8qiiganpu6926n$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-camera/android/build.gradle:62)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-gesture-handler
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle': line 114
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_evxthn4sb8h2ue12wdbm8feo$_run_closure3.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle:114)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_evxthn4sb8h2ue12wdbm8feo.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle:111)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle': line 126
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_evxthn4sb8h2ue12wdbm8feo$_run_closure3.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle:126)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_evxthn4sb8h2ue12wdbm8feo.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-gesture-handler/android/build.gradle:111)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-get-random-values
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle': line 27
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_9carefp1ta48x07rz6n63uhnf$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:27)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_9carefp1ta48x07rz6n63uhnf.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:24)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle': line 39
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_9carefp1ta48x07rz6n63uhnf$_run_closure1$_closure5.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:39)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_9carefp1ta48x07rz6n63uhnf$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:38)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle': line 48
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_9carefp1ta48x07rz6n63uhnf$_run_closure2$_closure6.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:48)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_9carefp1ta48x07rz6n63uhnf$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-get-random-values/android/build.gradle:46)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-reanimated
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 193
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure1$_closure2$_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:193)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure1$_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:192)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 135
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('version = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:135)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 216
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:216)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:211)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 223
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:223)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:211)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 227
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('prefab = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure22.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:227)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:226)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 228
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('prefabPublishing = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure22.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:228)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:226)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 229
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('buildConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure22.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:229)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:226)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 234
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('headers = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure23$_closure34.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:234)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure23.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:233)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 237
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('headers = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure23$_closure35.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:237)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure23.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:236)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 295
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4$_closure27.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:295)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:294)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Android gradle plugin: 8.8.2
+Gradle: 8.13
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 439
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure13$_closure47.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:439)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure13.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:437)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle': line 443
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure13$_closure48.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:443)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_50pon8z004jy1pfg9f482qr97$_run_closure13.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-reanimated/android/build.gradle:441)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-safe-area-context
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle': line 44
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:44)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_lfp7dkfy33l4vzt02633mdvu.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:41)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle': line 46
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('buildConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1$_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:46)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:45)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle': line 58
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:58)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_lfp7dkfy33l4vzt02633mdvu.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:41)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle': line 74
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1$_closure6.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:74)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure1.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:73)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle': line 114
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure2$_closure11.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:114)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_lfp7dkfy33l4vzt02633mdvu$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-safe-area-context/android/build.gradle:112)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-screens
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 113
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:113)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:111)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 121
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:121)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:111)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 142
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('prefab = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2$_closure8.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:142)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:141)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 143
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('buildConfig = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2$_closure8.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:143)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:141)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 151
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('abortOnError = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2$_closure10.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:151)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:150)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle': line 220
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure3$_closure20.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:220)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_tpa04dzl6mvvocs1icte6rma$_run_closure3.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-screens/android/build.gradle:219)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-vector-icons
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vector-icons/android/build.gradle': line 46
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_597lpopn6u4eo56cqt5eq4zqe$_run_closure2$_closure7.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vector-icons/android/build.gradle:46)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_597lpopn6u4eo56cqt5eq4zqe$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vector-icons/android/build.gradle:44)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+> Configure project :react-native-vision-camera
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 12
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('url = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure1$_closure2$_closure4.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:12)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure1$_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:11)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+[VisionCamera] Thank you for using VisionCamera ❤️
+[VisionCamera] If you enjoy using VisionCamera, please consider sponsoring this project: https://github.com/sponsors/mrousavy
+[VisionCamera] node_modules found at /mnt/c/git/anon-identity-mobile/node_modules
+[VisionCamera] VisionCamera_enableFrameProcessors is set to true!
+[VisionCamera] react-native-worklets-core not found, Frame Processors are disabled!
+[VisionCamera] VisionCamera_enableCodeScanner is set to false!
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 100
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('namespace = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:100)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:98)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 109
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('ndkVersion = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:109)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx.run(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:98)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 113
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('prefab = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2$_closure7.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:113)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:112)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 114
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('prefabPublishing = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2$_closure7.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:114)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:112)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+Build file '/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle': line 119
+Properties should be assigned using the 'propName = value' syntax. Setting a property via the Gradle-generated 'propName value' or 'propName(value)' syntax in Groovy DSL has been deprecated. This is scheduled to be removed in Gradle 10.0. Use assignment ('headers = <value>') instead. Consult the upgrading guide for further information: https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#groovy_space_assignment_syntax
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2$_closure8$_closure14.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:119)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+	at build_4sk5scvdm6c8qhz117f9gn5sx$_run_closure2$_closure8.doCall$original(/mnt/c/git/anon-identity-mobile/node_modules/react-native-vision-camera/android/build.gradle:118)
+	(Run with --stacktrace to get the full stack trace of this deprecation warning.)
+
+[Incubating] Problems report is available at: file:///mnt/c/git/anon-identity-mobile/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'.
+> Could not resolve all dependencies for configuration ':app:debugCompileClasspath'.
+   > Could not resolve project :react-native-camera.
+     Required by:
+         project :app
+      > The consumer was configured to find a library for use during compile-time, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '8.8.2', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm'. However we cannot choose between the following variants of project :react-native-camera:
+          - generalDebugApiElements
+          - mlkitDebugApiElements
+        All of them match the consumer attributes:
+          - Variant 'generalDebugApiElements' capability 'AnonIdentityMobile:react-native-camera:unspecified' declares a component for use during compile-time, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '8.8.2', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug':
+              - Unmatched attributes:
+                  - Doesn't say anything about its component category (required a library)
+                  - Doesn't say anything about its target Java environment (preferred optimized for Android)
+                  - Doesn't say anything about org.jetbrains.kotlin.platform.type (required 'androidJvm')
+                  - Provides attribute 'com.android.build.api.attributes.ProductFlavor:react-native-camera' with value 'general' but the consumer didn't ask for it
+                  - Provides attribute 'com.android.build.gradle.internal.attributes.VariantAttr' with value 'generalDebug' but the consumer didn't ask for it
+                  - Provides attribute 'react-native-camera' with value 'general' but the consumer didn't ask for it
+          - Variant 'mlkitDebugApiElements' capability 'AnonIdentityMobile:react-native-camera:unspecified' declares a component for use during compile-time, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '8.8.2', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug':
+              - Unmatched attributes:
+                  - Doesn't say anything about its component category (required a library)
+                  - Doesn't say anything about its target Java environment (preferred optimized for Android)
+                  - Doesn't say anything about org.jetbrains.kotlin.platform.type (required 'androidJvm')
+                  - Provides attribute 'com.android.build.api.attributes.ProductFlavor:react-native-camera' with value 'mlkit' but the consumer didn't ask for it
+                  - Provides attribute 'com.android.build.gradle.internal.attributes.VariantAttr' with value 'mlkitDebug' but the consumer didn't ask for it
+                  - Provides attribute 'react-native-camera' with value 'mlkit' but the consumer didn't ask for it
+
+* Try:
+> Ambiguity errors are explained in more detail at https://docs.gradle.org/8.13/userguide/variant_model.html#sub:variant-ambiguity.
+> Review the variant matching algorithm at https://docs.gradle.org/8.13/userguide/variant_attributes.html#sec:abm_algorithm.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+10 actionable tasks: 10 up-to-date

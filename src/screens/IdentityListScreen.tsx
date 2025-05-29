@@ -68,7 +68,9 @@ function IdentityListScreen() {
 
   const renderEmptyState = () => (
     <View style={[styles.emptyState, {backgroundColor: theme.colors.background}]}>
-      <Text style={[styles.emptyIcon, {color: theme.colors.primary}]}>📇</Text>
+      <View style={{marginBottom: 24}}>
+        <Icon name={IconNames.emptyIdentity} size={80} color={theme.colors.primary} />
+      </View>
       <Text style={[styles.emptyTitle, {color: theme.colors.text}]}>No Identities Yet</Text>
       <Text style={[styles.emptySubtitle, {color: theme.colors.textSecondary}]}>
         Scan a QR code to add your first identity
@@ -76,7 +78,10 @@ function IdentityListScreen() {
       <TouchableOpacity
         style={[styles.scanButton, {backgroundColor: theme.colors.primary}]}
         onPress={handleScanPress}>
-        <Text style={styles.scanButtonText}>Scan QR Code</Text>
+        <View style={styles.scanButtonContent}>
+          <Icon name={IconNames.scan} size={24} color="#FFFFFF" />
+          <Text style={styles.scanButtonText}>Scan QR Code</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -237,10 +242,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,
-  },
-  emptyIcon: {
-    fontSize: 80,
-    marginBottom: 24,
   },
   emptyTitle: {
     fontSize: 28,
